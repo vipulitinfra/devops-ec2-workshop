@@ -5,20 +5,13 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out source code...'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'python3 -m venv venv'
-                sh './venv/bin/pip install -r requirements.txt'
+                echo 'Source code checked out by Jenkins'
             }
         }
 
         stage('Test') {
             steps {
-                sh './venv/bin/pytest -q'
+                sh 'python3 -m pytest -q'
             }
         }
 
